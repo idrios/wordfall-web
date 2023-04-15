@@ -3,32 +3,40 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development', 
-    entry: './index.js',
+    entry: './index.ts',
     output: {
-        path: path.join(__dirname, './dist'), 
-        filename: 'app.js',
-        publicPath: '/' 
+      path: path.join(__dirname, './dist'), 
+      filename: 'app.js',
+      publicPath: '/' 
     }, 
     module: {
-        rules: [
-            {
-                test: /\.(jpe?g|png|gif|svg|ico|pdf)$/, 
-                exclude: /node_modules/,
-                loader: 'file-loader'
-            }
-        ]
+      rules: [
+        {
+          test: /\.(jpe?g|png|gif|svg|ico|pdf)$/, 
+          loader: 'file-loader',
+          exclude: /node_modules/
+        }, 
+        {
+          test: /\.tsx?$/, 
+          loader: 'ts-loader', 
+          exclude: /node_modules/
+        }
+      ]
+    }, 
+    resolve: {
+      extensions: ['', '.js', '.ts']
     }, 
     devServer: {
-        historyApiFallback: true
+      historyApiFallback: true
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        })
+      new HtmlWebpackPlugin({
+          template: './index.html'
+      })
     ],
     performance: {
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
     }, 
     devtool: 'source-map'
 }

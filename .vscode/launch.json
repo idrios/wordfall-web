@@ -10,16 +10,16 @@
       "webRoot": "${workspaceFolder}",
       "pathMappings": [
         {
-          "url": "webpack://wordfall-web/index.js",
-          "path": "${workspaceFolder}/index.js"
+          "url": "webpack://wordfall-web/src",
+          "path": "${workspaceFolder}/src"
         },
         {
-          "url": "webpack://wordfall-web/src/js",
-          "path": "${workspaceFolder}/src/js"
-        },
+          "url": "webpack://wordfall-web/index.ts",
+          "path": "${workspaceFolder}/index.ts"
+        }
       ],
       "skipFiles": [
-        "${workspaceFolder}/node_modules/**/*.js"
+        "${workspaceFolder}/node_modules/**/*.ts"
       ]
     },
     {
@@ -29,7 +29,7 @@
       "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}",
       "skipFiles": [
-        "${workspaceFolder}/node_modules/**/*.js"
+        "${workspaceFolder}/node_modules/**/*.ts"
       ],
       "sourceMaps": true
     }
